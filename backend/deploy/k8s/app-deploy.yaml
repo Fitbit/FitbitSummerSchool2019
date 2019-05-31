@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebapp-deployment
+spec:
+  selector:
+    matchLabels:
+      app: javawebapp
+  template:
+    metadata:
+      labels:
+        app: javawebapp
+    spec:
+      containers:
+        - name: javabackend
+          image: backend:0.0.1-SNAPSHOT
+          command: ["java"]
+          args: ["-cp", "/app/resources:/app/classes:/app/libs/*", "org.adragomir.backend.app.BackendApplication", "-spring.config.additional-location=/application.yaml"]
+          ports:
+          - containerPort: 8080
+          volumeMounts:
+          - name: config
+            mountPath: /application.yaml
+            subPath: javaapp.yaml
+      volumes:
+        - name: config
+          configMap:
+            name: appconfig

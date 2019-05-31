@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appconfig
+data:
+  javaapp.yaml: |
+    spring:
+      application:
+        name: backenddb
+      datasource:
+        driverClassName: org.postgresql.Driver
+        url: jdbc:postgresql://postgres:5432/backenddb
+        username: user
+        password: secretpassword
+    flyway:
+      url: jdbc:postgresql://postgres:5432/backenddb
+      schemas: backenddb
+      user: user
+      password: secretpassword
+  goapp.yaml: |
+    web:
+      host: 0.0.0.0
+      port: 8081
+    database:
+      host: localhost
+      port: 5432
+      username: user
+      password: secretpassword
+      schema: backenddb

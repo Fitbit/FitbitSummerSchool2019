@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: javawebapp
+spec:
+  type: NodePort
+  ports:
+    - nodePort: 31317
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: javawebapp
