@@ -1,0 +1,9 @@
+web:
+  host: 0.0.0.0
+  port: 8081
+database:
+  host: localhost
+  port: 5432
+  username: admin
+  password: postgres
+  schema: backenddb

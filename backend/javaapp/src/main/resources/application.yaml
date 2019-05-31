@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/backenddb
+    username: admin
+    password: postgres
+flyway:
+  url: jdbc:postgresql://localhost:5432/backenddb
+  schemas: backenddb
+  user: admin
+  password: postgres
