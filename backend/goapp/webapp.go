@@ -8,8 +8,12 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/golang-migrate/migrate/v4"
 	"github.com/jackc/pgx"
 	"gopkg.in/yaml.v2"
+
+	_ "github.com/golang-migrate/migrate/v4/database/postgres"
+	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
 var (
@@ -43,6 +47,23 @@ func main() {
 	err = yaml.Unmarshal(rawConfig, &config)
 	if err != nil {
 		log.Printf("Error reading configuration file: %+v", err)
+	}
+
+	m, err := migrate.New(
+		"file://db",
+		fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=disable",
+			config.Database.Username,
+			config.Database.Password,
+			config.Database.Host,
+			config.Database.Port,
+			config.Database.Schema),
+		)
+	if err != nil {
+		log.Panicf("Could not initialize migration: %+v", err)
+	}
+	err = m.Steps(1)
+	if err != nil {
+		log.Printf("Could not do db migrations: %+v", err)
 	}
 
 	cp, err = pgx.NewConnPool(pgx.ConnPoolConfig{
