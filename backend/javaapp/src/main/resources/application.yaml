@@ -6,8 +6,3 @@ spring:
     url: jdbc:postgresql://localhost:5432/backenddb
     username: admin
     password: postgres
-flyway:
-  url: jdbc:postgresql://localhost:5432/backenddb
-  schemas: backenddb
-  user: admin
-  password: postgres
