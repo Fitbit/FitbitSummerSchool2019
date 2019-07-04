@@ -38,8 +38,8 @@ public class DevicesListAdapter extends RecyclerView.Adapter<DevicesListAdapter.
      */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = devicesList.get(position);
-        holder.myTextView.setText(animal);
+        String deviceInfo = devicesList.get(position);
+        holder.myTextView.setText(deviceInfo);
     }
 
     @Override
