@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BLE Session</string>
+    <string name="scan_devices">Scan devices</string>
+    <string name="stop_scan">Stop scan</string>
+    <string name="scan_ble_devices">Scan BLE devices</string>
+    <string name="ble_not_supported">Bluetooth Low Energy not supported by this phone</string>
+    <string name="hello_fitbit">Hello Fitbit!</string>
+    <string name="bt_not_supported">Device doesn\'t support Bluetooth</string>
+    <string name="settings_batch_save_interva">Batch Save Interval</string>
+    <string name="settings_sample_rate">Sample Rate</string>
+    <string name="settings_co2_threshold">CO2 Pollution Threshold</string>
+    <string name="settings_voc_threshold">VOC Pollution Threshold</string>
+    <string name="settings_save">Save</string>
+
+    <string name="co2_entry_value">CO2(ppm): %d</string>
+    <string name="voc_entry_value">VOC(ppm): %d</string>
+    <string name="device_entry_value">Device: %s</string>
+    <string name="view_history">View History</string>
+    <string name="settings">Settings</string>
+</resources>
