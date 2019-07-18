@@ -1,4 +1,4 @@
-CREATE TABLE backenddb.customer (
+CREATE TABLE customer (
   id SERIAL NOT NULL,
   first_name text,
   last_name text,

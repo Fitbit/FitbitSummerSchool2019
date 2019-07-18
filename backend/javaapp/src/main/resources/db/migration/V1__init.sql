@@ -1,4 +1,4 @@
-CREATE TABLE backenddb.events (
+CREATE TABLE events (
  id SERIAL,
  data jsonb
 );
