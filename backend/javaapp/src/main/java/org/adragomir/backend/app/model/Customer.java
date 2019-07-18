@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema = "backenddb", catalog = "customer")
 public class Customer {
 
     @Id
