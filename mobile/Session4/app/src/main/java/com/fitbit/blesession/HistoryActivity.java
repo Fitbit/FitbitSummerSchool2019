@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,7 @@ public class HistoryActivity extends AppCompatActivity {
                 final List<AirQualityEntity> entities = ThingyDB.getDb()
                     .airQualityDao()
                     .getAllAirQualityEntries();
+                Log.d("AIRQUALITY: ", "get from db  " + entities.size() + " records");
 
                 runOnUiThread(new Runnable() {
                     @Override

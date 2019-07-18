@@ -38,6 +38,7 @@ public class ButtonThingyListener implements ThingyListener {
             @Override
             public void run() {
                 try {
+                    Log.d("AIRQUALITY: ", "records size " + records.size() + " to be saved in db");
                     ThingyDB.getDb()
                         .airQualityDao()
                         .saveAirQualityEntries(records);
@@ -63,6 +64,7 @@ public class ButtonThingyListener implements ThingyListener {
     @Override
     public void onServiceDiscoveryCompleted(BluetoothDevice device) {
         thingySdkManager.enableButtonStateNotification(device, true);
+        thingySdkManager.enableAirQualityNotifications(device, true);
     }
 
     @Override
@@ -87,6 +89,7 @@ public class ButtonThingyListener implements ThingyListener {
 
     @Override
     public void onAirQualityValueChangedEvent(BluetoothDevice bluetoothDevice, int eco2, int tvoc) {
+        Log.d("AIRQUALITY: ", "values  " + eco2 + " : " + tvoc);
         records.add(new AirQualityEntity(
             System.currentTimeMillis(),
             bluetoothDevice.getAddress(),
